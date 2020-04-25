@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Final</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+  <p class="title">Anna's Instrument Store</p>
+  <span class = 'itemCount'><h4>Items in Cart: {{cart.length}}</h4></span>
+  <input class = "trash" v-on:click="emptyCart()" type="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQn9cD0_CCyNYDtLLl7Ijn9OWVarierhzH4YYPOPG4Co2Fj413Q&usqp=CAU">
+  <span class = 'itemCount'><h4>Items in Store: {{items.length}}</h4></span>
+  <h3 v-if="items.length == 0">The store is empty</h3>
+  <div v-if="showPopUp" v-on:click="showPopUp=false">
+    <div class="popUp">
+      <div v-if="popUpItem.img"><img v-bind:src="popUpItem.img"/></div>
+      <div>{{popUpItem.Name}}</div>
+      <div>{{popUpItem.Type}}</div>
+      <div>${{popUpItem.Price}}</div>
+      <div>{{popUpItem.Brand}}</div>
+      <div><button v-on:click = "addToCart(index)">Add to Cart</button></div>
+    </div>
+  </div>
+  <div v-for="(item, index) in items">
+    <div class="item" v-on:click="popUp(item)" v-bind:class=item.Brand>
+      <div v-if="item.img"><img v-bind:src="item.img"/></div>
+      <div v-if="item.noImage"><h4>No-Image</h4></div>
+      <span class = 'text'>
+      <div>{{item.Name}}</div>
+      <div>{{item.Type}}</div>
+      <div>{{item.Brand}}</div>
+      <div>{{item.Price}}</div>
+    </span>
+    </div>
+    <button v-on:click = "addToCart(index)">Add to Cart</button>
+  </div>
+  <br>
+
+<div v-if="!showForm">
+  <button v-on:click="displayForm()">Add Item</button>
+</div>
+
+<div class ="form" v-if="showForm">
+  <div class= "popUp">
+  <input type="text" v-model="nameInput" placeholder="Instrument Name"/>
+  <input type="text" v-model="typeInput" placeholder="Instrument Type"/>
+  <input type="text" v-model="costInput" placeholder="Instrument Cost"/>
+  <input type="radio" v-model="brandInput" id="one" value="Fender"/>
+  <label for ="one">Fender</label>
+  <input type="radio" v-model="brandInput" id="two" value="Maton"/>
+  <label for ="two">Maton</label>
+  <input type="radio" v-model="brandInput" id="three" value="Yamaha"/>
+  <label for ="three">Yamaha</label>
+  <button v-on:click="addInstrument()">Add Item</button>
+</div>
+</div>
+
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

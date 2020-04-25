@@ -1,0 +1,84 @@
+.item{
+  height: 180px;
+  width: 100px;
+  border: solid 2px black;
+  padding-left: 10px;
+  overflow: hidden;
+}
+
+.text{
+  text-indent:12px;
+}
+
+.itemCount{
+  padding-left: 550px;
+  font-weight: bold;
+  font-size: 20px;
+  float: center;
+  height:150px;
+  width:150px;
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+img{
+  height:75px;
+  
+}
+
+.Yamaha:hover {
+  background-color:green;
+  color:white;
+}
+
+.Fender:hover {
+  background-color:red;
+  color:white;
+}
+
+.Maton:hover {
+  background-color:blue;
+  color:white;
+}
+
+.trash{
+  display:flex;
+  height:80px;
+  width:80px;
+  float:center;
+  padding-left:580px;
+  
+}
+
+.image{
+  display:block;
+  margin:auto;
+}
+
+.popUp{
+  height:100%;
+  width:100%;
+  background-color:rgba(193, 193, 193, 0.66);
+  top:0;
+  left:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  position:static;
+}
+
+
+.popUp img{
+  height:100px;
+}
+
+
+
+.title {
+  font-weight: bold;
+  font-size: 48px;
+  text-align: center;
